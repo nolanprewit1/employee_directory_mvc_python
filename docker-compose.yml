@@ -1,0 +1,8 @@
+version: "3"
+services:
+  employee_directory_mvc:
+    build: ./
+    container_name: employee_directory_mvc    
+    ports:
+      - "80:8080"
+    restart: always

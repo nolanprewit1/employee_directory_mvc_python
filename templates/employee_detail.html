@@ -1,0 +1,17 @@
+{% extends 'template.html' %}
+
+{% block body %}
+
+<h1>Employee Detail</h1>
+
+{% for result in results %}
+
+    <tr>
+      <td>{{result[1]}}</td>
+      <td>{{result[2]}}</td>
+      <td>{{result[3]}}</td>
+    </tr>
+
+  {% endfor %}
+
+{% endblock %}

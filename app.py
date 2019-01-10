@@ -73,11 +73,21 @@ def employee_create():
         employee_first_name = request.form['employee_first_name']
         employee_last_name = request.form['employee_last_name']
         employee_position = request.form['employee_position']
-        create_update_query('INSERT INTO employee (first_name,last_name,position) VALUES (?,?,?)', (employee_first_name,employee_last_name,employee_position))
+        create_update_query(
+            'INSERT INTO employee (first_name,last_name,position) VALUES (?,?,?)', 
+            (employee_first_name,employee_last_name,employee_position)
+        )
         return redirect("/", code=302)
     else:
         return redirect("/", code=302)
-    
+
+@server.route("/employee/<id>", methods=["GET"])
+def employe_detail(id):
+    if request.method == "GET":
+        results = select_query("SELECT * FROM EMPLOYEE WHERE id = ?", id)
+        return render_template("employe_detail.html", results=results)
+    else:
+        return redirect("/", code=302)
 
 ### START AND RUN THE SERVER ###
 if __name__ == "__main__": 

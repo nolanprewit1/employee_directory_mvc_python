@@ -23,7 +23,10 @@
       <td>{{result[2]}}</td>
       <td>{{result[3]}}</td>
       <th>
-        <button type="button" value={{result[0]}}>Edit</button>
+        <form action="/employee/{{result[0]}}">
+          <button type="submit">Create</button>
+        </form>
+        <button type="button" value=>Edit</button>
         <button type="button" value={{result[0]}}>Details</button>
         <button type="button" value={{result[0]}}>Delete</button>
       </th>

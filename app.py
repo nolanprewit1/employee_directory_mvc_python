@@ -25,13 +25,6 @@ def connect_database():
 
 ### DEFINE SQL QUERY FUNCTIONS FOR EACH QUERY TYPE ###
 
-# CREATE
-# def create_query(query):
-#     cur = db_connection.cursor() 
-#     cur.execute(query)
-#     rows = cur.fetchall()
-#     return rows
-
 # READ
 def select_all_query(query):
     db_connection = connect_database()
@@ -50,8 +43,8 @@ def select_query(query, var):
     db_connection.close()
     return rows
 
-# UPDATE
-def update_query(query, var):
+# CREATE & UPDATE
+def create_update_query(query, var):
     db_connection = connect_database()
     cur = db_connection.cursor() 
     cur.execute(query, var)
@@ -69,13 +62,19 @@ def delete_query(query, var):
 @server.route("/")
 @server.route("/index")
 def index():
-    results = select_all_query("SELECT * FROM EMPLOYEES")
+    results = select_all_query("SELECT * FROM EMPLOYEE")
     return render_template("index.html", results=results)
 
-@server.route("/create", methods=["GET", "POST"])
-def create():
+@server.route("/employee/create", methods=["GET", "POST"])
+def employee_create():
     if request.method == "GET":
-        return render_template("create.html")
+        return render_template("employee_create.html")
+    elif request.method == "POST":
+        employee_first_name = request.form['employee_first_name']
+        employee_last_name = request.form['employee_last_name']
+        employee_position = request.form['employee_position']
+        create_update_query('INSERT INTO employee (first_name,last_name,position) VALUES (?,?,?)', (employee_first_name,employee_last_name,employee_position))
+        return redirect("/", code=302)
     else:
         return redirect("/", code=302)
     

@@ -4,7 +4,9 @@
 
 <h1>Employee Directory</h1>
 
-<button type="button">Create</button>
+<form action="/create">
+  <button type="submit">Create</button>
+</form>
 
 <table>
   <tr>
@@ -15,7 +17,7 @@
   </tr>
 
   {% for result in results %}
-  
+
     <tr>
       <td>{{result[1]}}</td>
       <td>{{result[2]}}</td>

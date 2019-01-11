@@ -2,7 +2,7 @@
 import json
 import sqlite3
 from sqlite3 import Error
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_file
 
 ### IMPORT CONFIG FILE ### 
 with open("config.json") as config_file:

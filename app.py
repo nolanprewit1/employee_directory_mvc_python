@@ -67,9 +67,13 @@ def index():
     return render_template("index.html", results=results)
 
 @server.route("/report")
-def reports():
+def report():
+    return render_template("report.html")
+
+@server.route("/report/report_all_employees")
+def report_all_employees():
     results = select_all_query("SELECT * FROM EMPLOYEE")
-    return render_template("report.html", results=results)
+    return render_template("report_all_employees.html", results=results)
 
 @server.route("/employee/create", methods=["GET", "POST"])
 def employee_create():

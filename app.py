@@ -2,7 +2,7 @@
 import json
 import sqlite3
 from sqlite3 import Error
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_file
 
 ### IMPORT CONFIG FILE ### 
 with open("config.json") as config_file:
@@ -65,6 +65,15 @@ def delete_query(query, var):
 def index():
     results = select_all_query("SELECT * FROM EMPLOYEE")
     return render_template("index.html", results=results)
+
+@server.route("/report")
+def report():
+    return render_template("report.html")
+
+@server.route("/report/report_all_employees")
+def report_all_employees():
+    results = select_all_query("SELECT * FROM EMPLOYEE")
+    return render_template("report_all_employees.html", results=results)
 
 @server.route("/employee/create", methods=["GET", "POST"])
 def employee_create():

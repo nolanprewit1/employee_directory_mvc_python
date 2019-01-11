@@ -4,13 +4,19 @@
 
 <h1>Employee Detail</h1>
 
-{% for result in results %}
+  {% for result in results %}
 
-    <tr>
-      <td>{{result[1]}}</td>
-      <td>{{result[2]}}</td>
-      <td>{{result[3]}}</td>
-    </tr>
+  <form>
+    First Name:<br>
+    <input type="text" name="employee_first_name" value={{result[1]}} readonly>
+    <br>
+    Last Name:<br>
+    <input type="text" name="employee_last_name" value={{result[2]}} readonly>
+    <br>
+    Position:<br>
+    <input type="text" name="employee_position" value={{result[3]}} readonly>
+    <br><br>
+    <input type="submit" formaction="/" value="Back" formnovalidate formmethod="GET">
 
   {% endfor %}
 

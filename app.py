@@ -66,6 +66,11 @@ def index():
     results = select_all_query("SELECT * FROM EMPLOYEE")
     return render_template("index.html", results=results)
 
+@server.route("/reports")
+def reports():
+    results = select_all_query("SELECT * FROM EMPLOYEE")
+    return render_template("reports.html", results=results)
+
 @server.route("/employee/create", methods=["GET", "POST"])
 def employee_create():
     if request.method == "GET":

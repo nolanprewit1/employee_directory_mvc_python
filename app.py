@@ -93,6 +93,27 @@ def employe_detail(id):
     else:
         return redirect("/", code=302)
 
+@server.route("/employee/update/<id>", methods=["GET", "POST"])
+def employee_update(id):
+    if request.method == "GET":
+        results = select_query(
+            'SELECT * FROM EMPLOYEE WHERE id = ?', 
+            (id,)
+        )
+        return render_template("employee_update.html", results=results)
+    elif request.method == "POST":
+        employee_first_name = request.form['employee_first_name']
+        employee_last_name = request.form['employee_last_name']
+        employee_position = request.form['employee_position']
+        print(id)
+        create_update_query(
+            'UPDATE EMPLOYEE SET first_name = ?, last_name = ?, position = ? where id = ?',
+            (employee_first_name,employee_last_name,employee_position,id)
+        )
+        return redirect("/", code=302)
+    else:
+        return redirect("/", code=302)
+
 @server.route("/employee/delete/<id>", methods=["GET", "POST"])
 def employee_delete(id):
     if request.method == "GET":

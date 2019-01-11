@@ -56,6 +56,7 @@ def delete_query(query, var):
     db_connection = connect_database()
     cur = db_connection.cursor() 
     cur.execute(query, var)
+    db_connection.commit()
     db_connection.close()
 
 ### DEFINE THE ROUTES ###
@@ -84,8 +85,25 @@ def employee_create():
 @server.route("/employee/detail/<id>", methods=["GET"])
 def employe_detail(id):
     if request.method == "GET":
-        results = select_query('SELECT * FROM EMPLOYEE WHERE id = ?', (id,))
+        results = select_query(
+            'SELECT * FROM EMPLOYEE WHERE id = ?', 
+            (id,)
+        )
         return render_template("employee_detail.html", results=results)
+    else:
+        return redirect("/", code=302)
+
+@server.route("/employee/delete/<id>", methods=["GET", "POST"])
+def employee_delete(id):
+    if request.method == "GET":
+        results = select_query('SELECT * FROM EMPLOYEE WHERE id = ?', (id,))
+        return render_template("employee_delete.html", results=results)
+    elif request.method == "POST":
+        delete_query(
+            'DELETE FROM EMPLOYEE WHERE ID = ?',
+            (id,)
+        )
+        return redirect("/", code=302)
     else:
         return redirect("/", code=302)
 

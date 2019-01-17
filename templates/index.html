@@ -2,31 +2,37 @@
 
 {% block body %}
 <div class="container">
-  <table id="employee_table" class="table table-striped">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th> 
-        <th>Position</th>
-        <th><a href="/employee/create" class="btn btn-outline-success">Create</a></th>
-      </tr>
-    </thead>
-    
-    <tbody>
-      {% for result in results %}
-      <tr>
-        <td>{{result[1]}}</td>
-        <td>{{result[2]}}</td>
-        <td>{{result[3]}}</td>
-        <td>
-          <a href="/employee/update/{{result[0]}}" class="btn btn-outline-primary">Update</a>
-          <a href="/employee/detail/{{result[0]}}" class="btn btn-outline-info">Detail</a>
-          <a href="/employee/delete/{{result[0]}}" class="btn btn-outline-danger">Delete</a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody> 
-  </table>      
+  <div class="col">
+  </div>
+  <div class="col">
+    <table id="employee_table" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th> 
+          <th>Position</th>
+          <th><a href="/employee/create" class="btn btn-outline-success">Create</a></th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        {% for result in results %}
+        <tr>
+          <td>{{result[1]}}</td>
+          <td>{{result[2]}}</td>
+          <td>{{result[3]}}</td>
+          <td>
+            <a href="/employee/update/{{result[0]}}" class="btn btn-outline-primary">Update</a>
+            <a href="/employee/detail/{{result[0]}}" class="btn btn-outline-info">Detail</a>
+            <a href="/employee/delete/{{result[0]}}" class="btn btn-outline-danger">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody> 
+    </table>  
+  </div>  
+  <div class="col">
+  </div>  
 </div>
 
 <script>

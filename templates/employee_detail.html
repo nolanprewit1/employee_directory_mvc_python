@@ -1,24 +1,32 @@
 {% extends 'template.html' %}
 
 {% block body %}
+{% for result in results %}
 
-<h1>Employee Detail</h1>
-
-  {% for result in results %}
-
-    <form>
-      First Name:<br>
-      <input type="text" name="employee_first_name" value={{result[1]}} readonly>
-      <br>
-      Last Name:<br>
-      <input type="text" name="employee_last_name" value={{result[2]}} readonly>
-      <br>
-      Position:<br>
-      <input type="text" name="employee_position" value={{result[3]}} readonly>
-      <br><br>
-      <input type="submit" formaction="/" value="Back" formnovalidate formmethod="GET">
-    </form>
+<div class="container">
+    <div class="col">
+    </div>
+    <div class="col">
+      <h3>Employee Record Detail</h3>
+      <form>
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" class="form-control" name="employee_first_name" value={{result[1]}} readonly>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" class="form-control" name="employee_last_name" value={{result[2]}} readonly>
+        </div>
+        <div class="form-group">
+          <label>Position</label>
+          <input type="text" class="form-control" name="employee_position" value={{result[3]}} readonly>
+        </div>
+        <a href="/" class="btn btn-outline-secondary">Back</a>
+      </form>
+    </div>
+    <div class="col">
+    </div>
+  </div>
     
-  {% endfor %}
-
+{% endfor %}
 {% endblock %}

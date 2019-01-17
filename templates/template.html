@@ -8,6 +8,11 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
         <!-- Removed favicon link -->
         <link rel="icon" href="data:,">
+        <!-- Datatables -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='jquery.dataTables.css') }}">
+        <!-- jQuery -->
+        <script src="{{ url_for('static', filename='jquery-3.3.1.slim.min.js') }}"></script>
+
         <title>Employee Directory MVC</title>
     </head>
 
@@ -26,11 +31,10 @@
         </nav>
         {% block body %}
         {% endblock %}
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="{{ url_for('static', filename='jquery-3.3.1.slim.min.js') }}"></script>
+        <!-- Popper.js, Bootstrap JS, dataTables -->        
         <script src="{{ url_for('static', filename='popper.min.js') }}"></script>
         <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='jquery.dataTables.js') }}"></script>
     </body>
 
 </html>

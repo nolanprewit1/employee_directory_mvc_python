@@ -1,7 +1,9 @@
 ### IMPORT REQUIRED PYTHON MODULES ###
-import sqlite3
 import json
 from flask import Flask, redirect, url_for
+from sqlalchemy import Column, Integer, String, ForeignKey, create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship, backref, sessionmaker, joinedload
 
 ### IMPORT CONFIG FILE ### 
 with open("config.json") as config_file:
@@ -9,9 +11,19 @@ with open("config.json") as config_file:
 
 ### CONNECT TO THE DATABASE ###
 try:
-    db_connection = (sqlite3.connect(config.get("database_file"))).cursor()
+    db_path = "sqlite:///" + config.get("database_file")
+    db_engine = create_engine(db_path, echo=True)
+    Session = sessionmaker(bind=db_engine)
+    db_connection = Session()
 except:
     print("There was an error connecting to the database...")
+
+### IMPORT DATABASE MODELS ###
+Base = declarative_base()
+from project.models import model_employees
+
+### CREATE DATABASE TABLES BASED ON MODELS ###
+Base.metadata.create_all(db_engine) 
 
 ### DEFINE THE FLASK APP ###
 app = Flask('project')
@@ -23,5 +35,5 @@ def index_redirect():
     return redirect(url_for('employees_index'))
 
 ### IMPORT CONTROLLERS ###
-from project.controllers import employees
+from project.controllers import controller_employees
 

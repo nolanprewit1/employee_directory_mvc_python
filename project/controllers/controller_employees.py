@@ -1,7 +1,8 @@
 ### IMPORT REQUIRED PYTHON MODULES ###
 from flask import Flask, render_template, request, redirect, send_file
-# from employee_directory_mvc_python import app
 from project import app
+# from employee_directory_mvc_python import app
+
 
 ### DEFINE THE ROUTES ###
 # CREATE

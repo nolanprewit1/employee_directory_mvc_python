@@ -5,7 +5,6 @@ Build Information
     - Author = Parker
     - Author Email = nolanprewit1@gmail.com
 
-
 What Is This? 
 
     This is a simple employee directory web app to demonstrate a full mvc structured web application utilizing the python language.

@@ -4,7 +4,6 @@ from flask import Flask, render_template, request, redirect, send_file
 from project import app
 
 ### DEFINE THE ROUTES ###
-
 # CREATE
 @app.route("/employees/create", methods=["GET", "POST"])
 def employee_create():
@@ -23,7 +22,6 @@ def employee_create():
         return redirect("/", code=302)
 
 # READ
-# @app.route("/")
 @app.route("/employees")
 def employees_index():
     # results = select_all_query("SELECT * FROM EMPLOYEE")

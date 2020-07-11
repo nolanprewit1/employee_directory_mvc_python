@@ -1,4 +1,4 @@
-{% extends 'template.html' %}
+{% extends 'layout/layout.html' %}
 
 {% block body %}
 
@@ -20,8 +20,8 @@
         <label>Position</label>
         <input type="text" class="form-control" name="employee_position" required>
       </div>
-      <a href="/" class="btn btn-outline-secondary">Back</a>
-      <button type="submit" class="btn btn-outline-success">Create</button>
+      <a href="/employees" class="btn btn-secondary">Back</a>
+      <button type="submit" class="btn btn-success">Create</button>
     </form>
   </div>
   <div class="col">

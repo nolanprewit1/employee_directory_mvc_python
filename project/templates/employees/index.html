@@ -1,4 +1,4 @@
-{% extends 'template.html' %}
+{% extends 'layout/layout.html' %}
 
 {% block body %}
 <div class="container">
@@ -11,7 +11,7 @@
           <th>Firstname</th>
           <th>Lastname</th> 
           <th>Position</th>
-          <th><a href="/employee/create" class="btn btn-outline-success">Create</a></th>
+          <th><a href="/employees/create" class="btn btn-success">Create</a></th>
         </tr>
       </thead>
       
@@ -22,9 +22,9 @@
           <td>{{result[2]}}</td>
           <td>{{result[3]}}</td>
           <td>
-            <a href="/employee/update/{{result[0]}}" class="btn btn-outline-primary">Update</a>
-            <a href="/employee/detail/{{result[0]}}" class="btn btn-outline-info">Detail</a>
-            <a href="/employee/delete/{{result[0]}}" class="btn btn-outline-danger">Delete</a>
+            <a href="/employees/update/{{result[0]}}" class="btn btn-primary">Update</a>
+            <a href="/employees/detail/{{result[0]}}" class="btn btn-info">Detail</a>
+            <a href="/employees/delete/{{result[0]}}" class="btn btn-danger">Delete</a>
           </td>
         </tr>
         {% endfor %}
@@ -36,9 +36,9 @@
 </div>
 
 <script>
-$(document).ready(function() {
-  $('#employee_table').DataTable();
-} );
+  $(document).ready(function() {
+    $('#employee_table').DataTable();
+  });
 </script>
 
 

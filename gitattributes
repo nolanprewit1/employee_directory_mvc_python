@@ -1,6 +1,0 @@
-project/static/* linguist-generated
-project/views/* linguist-generated
-
-*.css linguist-detectable=false
-*.js linguist-detectable=false
-*.html linguist-detectable=false

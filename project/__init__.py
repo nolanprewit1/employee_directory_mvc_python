@@ -4,6 +4,7 @@ from flask import Flask, redirect, url_for
 from sqlalchemy import Column, Integer, String, ForeignKey, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, backref, sessionmaker, joinedload
+from sqlalchemy.pool import StaticPool
 
 ### IMPORT CONFIG FILE ### 
 with open("config.json") as config_file:
@@ -12,7 +13,11 @@ with open("config.json") as config_file:
 ### CONNECT TO THE DATABASE ###
 try:
     db_path = "sqlite:///" + config.get("database_file")
-    db_engine = create_engine(db_path, echo=False)
+    db_engine = create_engine(
+        db_path, 
+        echo=False, 
+        connect_args={'check_same_thread':False},
+        poolclass=StaticPool)
     Session = sessionmaker(bind=db_engine)
     db_connection = Session()
 except:

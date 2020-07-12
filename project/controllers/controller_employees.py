@@ -25,24 +25,24 @@ def employee_create():
 # READ
 @app.route("/employees")
 def employees_index():
-    results = db_connection.query(model_employees.Employees).all()
+    results = db_connection.query(model_employees.Employees)\
+        .all()
     return render_template("employees/index.html", results=results)
 
 @app.route("/employees/detail/<id>", methods=["GET"])
 def employees_detail(id):
-    if request.method == "GET":
         # results = select_query(
         #     'SELECT * FROM EMPLOYEE WHERE id = ?', 
         #     (id,)
         # )
-        results = db_connection.query(data)\
-            .filter(employees.id==id)
+        # results = db_connection.query(data)\
+        #     .filter(employees.id==id)
     #     session.query(User)\
     # .filter(Address.email_address=='ed@google.com')\
     # .first()
-        return render_template("employees/detail.html", results=results)
-    else:
-        return redirect("/", code=302)
+    results = db_connection.query(model_employees.Employees)\
+        .filter(model_employees.Employees.id==id)
+    return render_template("employees/detail.html", results=results)
 
 #UPDATE
 # @app.route("/employee/update/<id>", methods=["GET", "POST"])

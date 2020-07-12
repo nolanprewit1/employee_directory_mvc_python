@@ -22,9 +22,9 @@
           <td>{{result.lastName}}</td>
           <td>{{result.position}}</td>
           <td>
-            <a href="/employees/update/{{result[0]}}" class="btn btn-primary">Update</a>
-            <a href="/employees/detail/{{result[0]}}" class="btn btn-info">Detail</a>
-            <a href="/employees/delete/{{result[0]}}" class="btn btn-danger">Delete</a>
+            <a href="/employees/update/{{result.id}}" class="btn btn-primary">Update</a>
+            <a href="/employees/detail/{{result.id}}" class="btn btn-info">Detail</a>
+            <a href="/employees/delete/{{result.id}}" class="btn btn-danger">Delete</a>
           </td>
         </tr>
         {% endfor %}

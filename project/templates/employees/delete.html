@@ -1,4 +1,4 @@
-{% extends 'template.html' %}
+{% extends 'layout/layout.html' %}
 
 {% block body %}
 {% for result in results %}
@@ -8,21 +8,21 @@
   </div>
   <div class="col">
     <h3>Delete Employee Record</h3>
-    <form action="/employee/delete/{{result[0]}}" method="POST">
+    <form action="/employees/delete/{{result.id}}" method="POST">
       <div class="form-group">
         <label>First Name</label>
-        <input type="text" class="form-control" name="employee_first_name" value={{result[1]}} readonly>
+        <input type="text" class="form-control" name="firstName" value={{result.firstName}} readonly>
       </div>
       <div class="form-group">
         <label>Last Name</label>
-        <input type="text" class="form-control" name="employee_last_name" value={{result[2]}} readonly>
+        <input type="text" class="form-control" name="lastName" value={{result.lastName}} readonly>
       </div>
       <div class="form-group">
         <label>Position</label>
-        <input type="text" class="form-control" name="employee_position" value={{result[3]}} readonly>
+        <input type="text" class="form-control" name="position" value={{result.position}} readonly>
       </div>
-      <a href="/" class="btn btn-outline-secondary">Back</a>
-      <button type="submit" class="btn btn-outline-danger">Delete</button>
+      <a href="/" class="btn btn-secondary">Back</a>
+      <button type="submit" class="btn btn-danger">Delete</button>
     </form>
   </div>
   <div class="col">

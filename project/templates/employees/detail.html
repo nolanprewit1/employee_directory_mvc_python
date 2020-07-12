@@ -1,32 +1,16 @@
 {% extends '/layout/layout.html' %}
-
 {% block body %}
 {% for result in results %}
-
-<div class="container">
-  <div class="col">
-  </div>
-  <div class="col">
-    <h3>Employee Record Detail</h3>
-    <form>
-      <div class="form-group">
-        <label>First Name</label>
-        <input type="text" class="form-control" name="firstName" value={{result.firstName}} readonly>
-      </div>
-      <div class="form-group">
-        <label>Last Name</label>
-        <input type="text" class="form-control" name="lastName" value={{result.lastName}} readonly>
-      </div>
-      <div class="form-group">
-        <label>Position</label>
-        <input type="text" class="form-control" name="position" value={{result.position}} readonly>
-      </div>
-      <a href="/employees" class="btn btn-secondary">Back</a>
-    </form>
-  </div>
-  <div class="col">
-  </div>
-</div>
-    
+  <h3>Employee Record Detail</h3>    
+  <form action="/employees" method="GET">
+    <label>First Name</label> <br>
+    <input type="text" name="firstName" value={{result.firstName}} readonly> <br>
+    <label>Last Names</label> <br>
+    <input type="text" name="lastName" value={{result.lastName}} readonly> <br>
+    <label>Position</label> <br>
+    <input type="text" name="position" value={{result.position}} readonly> <br> 
+    <br>     
+    <button type="submit">Back</button>
+  </form>    
 {% endfor %}
 {% endblock %}

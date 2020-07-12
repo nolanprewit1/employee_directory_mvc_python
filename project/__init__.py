@@ -34,6 +34,11 @@ Base.metadata.create_all(db_engine)
 app = Flask('project')
 app.debug = False
 
+### ALLOW RELOAD OF TEMPLATE FILES DURING DEVELOPMENT ###
+def before_request():
+    app.jinja_env.cache = {}
+app.before_request(before_request)
+
 ### SET DEFAULT ROUTE REDIRECT ###
 @app.route('/')
 def index_redirect():

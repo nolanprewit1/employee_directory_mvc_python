@@ -1,5 +1,5 @@
-project/static/* export-ignore
-project/views/* export-ignore
+project/static/* linguist-generated
+project/views/* linguist-generated
 
 *.css linguist-detectable=false
 *.js linguist-detectable=false

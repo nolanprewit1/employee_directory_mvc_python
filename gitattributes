@@ -1,2 +1,6 @@
 project/static/* export-ignore
 project/views/* export-ignore
+
+*.css linguist-detectable=false
+*.js linguist-detectable=false
+*.html linguist-detectable=false

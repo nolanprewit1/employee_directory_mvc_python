@@ -32,7 +32,7 @@ Base.metadata.create_all(db_engine)
 
 ### DEFINE THE FLASK APP ###
 app = Flask('project')
-app.debug = True
+app.debug = False
 
 ### SET DEFAULT ROUTE REDIRECT ###
 @app.route('/')

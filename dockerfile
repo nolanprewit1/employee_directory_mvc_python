@@ -1,8 +1,9 @@
 FROM alpine:latest
 RUN apk add python3
+RUN apk add py3-pip
 COPY . /app
 WORKDIR /app
-RUN pip3 install -r requirements.txt
-RUN pip3 install --upgrade pip
+RUN pip install -r requirements.txt
+RUN pip install --upgrade pip
 ENTRYPOINT ["python3"]
-CMD ["app.py"]
+CMD ["run.py"]

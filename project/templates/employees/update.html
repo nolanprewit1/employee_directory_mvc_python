@@ -1,4 +1,4 @@
-{% extends 'template.html' %}
+{% extends 'layout/layout.html' %}
 
 {% block body %}
 
@@ -8,21 +8,21 @@
   </div>
   <div class="col">
     <h3>Update Employee Record</h3>
-    <form action="/employee/update/{{result[0]}}" method="POST">
+    <form action="/employees/update/{{result.id}}" method="POST">
       <div class="form-group">
         <label>First Name</label>
-        <input type="text" class="form-control" name="employee_first_name" value={{result[1]}} required>
+        <input type="text" class="form-control" name="firstName" value={{result.firstName}} required>
       </div>
       <div class="form-group">
         <label>Last Name</label>
-        <input type="text" class="form-control" name="employee_last_name" value={{result[2]}} required>
+        <input type="text" class="form-control" name="lastName" value={{result.lastName}} required>
       </div>
       <div class="form-group">
         <label>Position</label>
-        <input type="text" class="form-control" name="employee_position" value={{result[3]}} required>
+        <input type="text" class="form-control" name="position" value={{result.position}} required>
       </div>
-      <a href="/" class="btn btn-outline-secondary">Back</a>
-      <button type="submit" class="btn btn-outline-primary">Update</button>
+      <a href="/employees" class="btn btn-secondary">Back</a>
+      <button type="submit" class="btn btn-primary">Update</button>
     </form>
   </div>
   <div class="col">

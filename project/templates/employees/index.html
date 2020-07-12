@@ -1,6 +1,6 @@
 {% extends 'layout/layout.html' %}
 {% block body %}
-  <table>
+  <table id="employees_table">
     <thead>
       <tr>
         <th>First Name</th>
@@ -23,5 +23,10 @@
         </tr>
       {% endfor %}
     </tbody> 
-  </table>  
+  </table>
+  <script>
+    $(document).ready( function () {
+      $('#employees_table').DataTable();
+    } );
+  </script>
 {% endblock %}

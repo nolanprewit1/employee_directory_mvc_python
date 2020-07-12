@@ -31,7 +31,7 @@ from project.models import model_employees
 Base.metadata.create_all(db_engine) 
 
 ### DEFINE THE FLASK APP ###
-app = Flask('project')
+app = Flask('project', static_url_path='')
 app.debug = False
 
 ### ALLOW RELOAD OF TEMPLATE FILES DURING DEVELOPMENT ###

@@ -12,7 +12,7 @@ with open("config.json") as config_file:
 ### CONNECT TO THE DATABASE ###
 try:
     db_path = "sqlite:///" + config.get("database_file")
-    db_engine = create_engine(db_path, echo=True)
+    db_engine = create_engine(db_path, echo=False)
     Session = sessionmaker(bind=db_engine)
     db_connection = Session()
 except:

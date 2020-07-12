@@ -7,18 +7,18 @@
   </div>
   <div class="col">
     <h3>Create Employee Record</h3>
-    <form action="/employee/create" method="POST">
+    <form action="/employees/create" method="POST">
       <div class="form-group">
         <label>First Name</label>
-        <input type="text" class="form-control" name="employee_first_name" required>
+        <input type="text" class="form-control" name="firstName" required>
       </div>
       <div class="form-group">
         <label>Last Name</label>
-        <input type="text" class="form-control" name="employee_last_name" required>
+        <input type="text" class="form-control" name="lastName" required>
       </div>
       <div class="form-group">
         <label>Position</label>
-        <input type="text" class="form-control" name="employee_position" required>
+        <input type="text" class="form-control" name="position" required>
       </div>
       <a href="/employees" class="btn btn-secondary">Back</a>
       <button type="submit" class="btn btn-success">Create</button>
